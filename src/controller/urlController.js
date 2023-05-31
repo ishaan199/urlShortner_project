@@ -23,7 +23,7 @@ const createUrl = async (req,res) => {
             return res.status(404).send({status:false,msg:"please Enter the Valid Url"});
         };
 
-        let urlCode = shortId.generate();
+        let urlCode = shortId.generate().toLowerCase();
         let shortUrl = baseUrl + urlCode;
 
         let saveData = {longUrl, shortUrl, urlCode};
@@ -42,4 +42,20 @@ const createUrl = async (req,res) => {
 };
 
 
+const getUrl = async (req,res) => {
+    try{
+        let code = req.params.urlCode;
+        let checkCode = await urlModel.findOne({urlCode:code})
+        if(!checkCode) {
+            return res.status(400).send({status:false,msg:"URL not found"})
+        };
+        res.status(400).redirect(checkCode.longUrl);
+
+    }catch(error){
+        res.status(500).send({status:false,error:error.message});
+    }
+}
+
+
 module.exports.createUrl = createUrl;
+module.exports.getUrl = getUrl;
