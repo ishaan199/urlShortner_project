@@ -6,7 +6,8 @@ const app = express();
 app.use(express.json());
 
 let port = 3000;
-let url = "";
+let url =
+  "mongodb+srv://believe0256:JBvEY7IxqczNHIp0@cluster0.n5nvli3.mongodb.net/urlShortnerProject5";
 mongoose.connect(url,{
     useNewUrlParser:true
 }).then(()=>{console.log("MongoDb is connected")}).catch((err)=>{console.log(err.message)});
