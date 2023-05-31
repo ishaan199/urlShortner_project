@@ -15,6 +15,10 @@ const baseUrl = "http://localhost:3000/";
 //CreateUrl 
 const createUrl = async (req,res) => {
     try{
+        let data = req.body
+        if(Object.keys(data).length < 1) {
+            return res.status(400).send({status:false,msg:"Provide Properties in the body"})
+        }
         const longUrl = req.body.longUrl;
         if(!isValid(longUrl)){
             return res.status(400).send({status:false, msg:"please enter a link as a value"})
