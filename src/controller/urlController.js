@@ -40,3 +40,6 @@ const createUrl = async (req,res) => {
         res.status(500).send({status:false,error:error.message})
     };
 };
+
+
+module.exports.createUrl = createUrl;
