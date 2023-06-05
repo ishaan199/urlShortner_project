@@ -3,7 +3,7 @@ import urlModel from '../model/url.js'
 // const validUrl = require('valid-url');
 import validUrl from 'valid-url';
 // const shortId = require('shortId');
-import shortId from "shortId";
+import shortId from "shortid";
 // const redis = require('redis');
 import redis from 'redis'
 // const {promisify} = require('util');
