@@ -1,11 +1,16 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const route = require('./routes/route');
+// const express = require('express');
+import express from 'express'
+// const mongoose = require('mongoose');
+import mongoose from 'mongoose';
+// const cors = require('cors');
+import cors from 'cors'
+// const route = require('./routes/route');
+import route from '../src/routes/route.js';
 const app = express();
 
 app.use(express.json());
-
-let port = 3000;
+app.use(cors());
+let port = 3001;
 let url = "mongodb+srv://ishaan:ishaan007@cluster1.wumfpap.mongodb.net/urlShortnerGroup5";
 mongoose.connect(url,{
     useNewUrlParser:true
